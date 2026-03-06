@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sophisticated Matte Beige Background (Off-white) */
+    --background: 34 40% 92%; 
+    
+    /* Pure Matte Black Foreground */
+    --foreground: 0 0% 0%; 
+
+    --card: 34 40% 94%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 34 40% 94%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Pure Black Primary Elements */
+    --primary: 0 0% 0%;
+    --primary-foreground: 34 40% 98%;
+
+    /* Subdued Grey-Beige for secondary elements */
+    --secondary: 34 20% 88%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 34 10% 85%;
+    --muted-foreground: 0 0% 25%;
+
+    /* Accent is also kept Black/Dark for the professional look */
+    --accent: 0 0% 10%;
+    --accent-foreground: 34 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 0% / 0.1;
+    --input: 0 0% 0% / 0.1;
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem; /* Sharper corners for professionalism */
+
+    --sidebar-background: 34 30% 90%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 34 40% 98%;
+    --sidebar-accent: 34 20% 85%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0% / 0.1;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    /* Jet Black Matte for Dark Mode */
+    --background: 0 0% 8%;
+    --foreground: 34 40% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 34 40% 95%;
+    --primary: 34 40% 95%;
+    --primary-foreground: 0 0% 8%;
+    --border: 0 0% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* Pure Black Matte Finish Configuration */
+    @apply bg-background text-foreground font-body antialiased;
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+    color: #000000;
+  }
+
+  ::selection {
+    /* Clean black selection highlight */
+    background: rgba(0, 0, 0, 0.1);
+    color: #000000;
+  }
+}
+
+@layer utilities {
+  /* Removed Neon Gradient - Replaced with solid deep black */
+  .text-gradient {
+    @apply text-foreground;
+    background: none;
+  }
+
+  .bg-grain {
+    position: relative;
+  }
+
+  /* Enhanced Grain for Matte Texture */
+  .bg-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04; 
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Darker, professional hero overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  /* Clean minimal divider */
+  .section-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Matte Glass effect */
+  .glass {
+    backdrop-filter: blur(12px);
+    background: rgba(245, 245, 220, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card-hover {
+    @apply transition-all duration-500;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Custom scrollbar matching the Matte Black look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1a1a1a;
+}
